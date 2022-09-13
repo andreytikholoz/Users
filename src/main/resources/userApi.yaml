@@ -1,0 +1,131 @@
+openapi: "3.0.0"
+info:
+  description: "Test task in the Сlear Solutions"
+  version: "0.0.1"
+  title: "ua.task.test.Users"
+  contact:
+    email: "tikholoz01@gmail.com"
+paths:
+  /user:
+    post:
+      summary: createUser
+      operationId: createUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserDTO"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+    patch:
+      summary: editUser
+      operationId: editUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserDTO"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+    put:
+      summary: replaceUser
+      operationId: replaceUser
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/UserDTO"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserDTO"
+    delete:
+      summary: deleteUser
+      operationId: deleteUser
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        200:
+          description: "Successful operation"            
+    get:
+      summary: getUserList
+      operationId: getUserList
+      parameters:
+        - in: query
+          name: birth_date1
+          required: true
+          schema:
+            type: string
+            format: date
+            example: "2021-01-30"
+        - in: query
+          name: birth_date2
+          required: true
+          schema:
+            type: string 
+            format: date
+            example: "2021-01-30"
+      responses:
+        200:
+          description: "Successful operation"
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/UserListDTO"              
+components:
+  schemas:
+    UserDTO:
+      type: object
+      required:
+        - id
+        - email
+        - first_name
+        - last_name
+        - birth_date
+      properties:
+        id:
+          type: string
+        email:
+          type: string
+          format: email
+          example: user@example.com
+        first_name:
+          type: string
+        last_name:
+          type: string
+        birth_date:
+          type: string
+          format: date
+          example: "2021-01-30"  
+        address:
+          type: string
+        phone_number:
+          type: string
+    UserListDTO:
+      type: object
+      properties:
+        users:
+          type: array
+          items:
+            $ref: "#/components/schemas/UserDTO"      
+            

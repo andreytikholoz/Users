@@ -1,0 +1,11 @@
+ua\task\test\users\repository\UserRepository.class
+ua\task\test\api\ApiUtil.class
+ua\task\test\users\repository\UserRepositoryImpl.class
+ua\task\test\model\UserDTO.class
+ua\task\test\model\UserListDTO.class
+ua\task\test\users\entity\UserEntity.class
+ua\task\test\users\controller\UserController.class
+ua\task\test\users\mapper\UserMapper.class
+ua\task\test\users\Application.class
+ua\task\test\users\service\UserService.class
+ua\task\test\api\UserApi.class
